@@ -1,0 +1,21 @@
+# .github/workflow/weekly_scan.yaml
+name: Weekly Report CTM
+
+on:
+  schedule: 
+  - cron: @ 12 * * 1
+  
+jobs:
+
+  weekly_report:
+    name: Weekly Report
+    runs on: Ubuntu-latest
+    steps:
+    
+    - name: weekly-report
+      uses: zubiks10/weekly-report@master
+      with:
+        assignees: "player1 player2"
+        pinned: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
